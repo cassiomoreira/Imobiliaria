@@ -4,17 +4,19 @@ $pagina = filter_input(INPUT_GET, "pagina", FILTER_SANITIZE_STRING);
 
 $arrayPaginas = array(
     "home" => "Paginas/home.php", //Página inicial
-    "sobre" => "Paginas/Sobre/Sobre.php", 
+    "sobre" => "Paginas/Sobre/Sobre.php",
     "contato" => "Paginas/Contato/Contato.php",
-    "nextPage" => "Paginas/NextPage/nextPage.php",
+    "alterarsenha" => "Paginas/Cliente/AlterarSenha.php",
+    "imoveis" => "Paginas/Imoveis/imoveis.php",
     "cliente" => "Paginas/Cliente/Cliente.php",
-
+ 
     //##ACESSOS##
     "acessos" => "Paginas/Log/Log.php",
     //##SCRIPTER##
     "scripterca" => "Paginas/Scripter/Cadastrar.php",
     "scripterco" => "Paginas/Scripter/Consultar.php",
     "scriptercc" => "Paginas/Scripter/ConsultaCompleta.php",
+
     //##ARTIGOS##
     "categoria" => "Paginas/Artigos/Categoria.php",
     "alterarcategoria" => "Paginas/Artigos/AlterarImagemCategoria.php",

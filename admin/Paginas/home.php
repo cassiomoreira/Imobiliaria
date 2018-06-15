@@ -1,3 +1,3 @@
 <div id="dvHome">
-    <h1>Início - <?= $_SESSION["nome"]; ?></h1>
+    <h1>Inicio - <?= $_SESSION["nome"]; ?></h1>
 </div>

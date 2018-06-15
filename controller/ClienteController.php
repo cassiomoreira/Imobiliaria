@@ -46,11 +46,19 @@ class ClienteController {
 
     public function AutenticarClientePainel(string $email, string $senha) {
 
-        if (strpos($email, "@") && strpos($email, ".") && strlen($senha) >= 7) { //alterado!!!!!!!!! So tinha sinha
+        if (strpos($email, "@") && strpos($email, ".") && strlen($senha) >= 7) { //alterado!!!!!!!!! So tinha senha
             $senha = md5($senha);
             return $this->clienteDAO->AutenticarClientePainel($email, $senha);
         } else {
             echo "Erro ao autenticar. ClienteController/AutenticarClientePainel";
+            return false;
+        }
+    }
+
+    public function AlterarSenha(string $senha, int $id_cliente) {
+        if (strlen($senha) >= 7 && $id_cliente > 0) {
+            return $this->clienteDAO->AlterarSenha($senha, $id_cliente);
+        } else {
             return false;
         }
     }

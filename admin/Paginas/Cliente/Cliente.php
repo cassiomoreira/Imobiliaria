@@ -92,7 +92,7 @@ if (filter_input(INPUT_GET, "id_cliente", FILTER_SANITIZE_NUMBER_INT)) {
     if (!filter_input(INPUT_GET, "consulta", FILTER_SANITIZE_STRING)) {
         ?>
         <div class="panel panel-default maxPanelWidth">
-            <div class="panel-heading">Cadastrar e editar</div>
+            <div class="panel-heading"><h2>Cadastrar e editar</h2></div>
             <div class="panel-body">
                 <form method="post" id="frmGerenciarCliente" name="frmGerenciarCliente" novalidate>
 
@@ -123,7 +123,7 @@ if (filter_input(INPUT_GET, "id_cliente", FILTER_SANITIZE_NUMBER_INT)) {
                         <div class="col-lg-6 col-xs-12"> 
                             <div class="form-group">
                                 <label for="txtTelefone">Telefone</label>
-                                <input type="text" class="form-control" id="txtTelefone" name="txtTelefone" placeholder="(99) 9 9999-9999" value="<?= $telefone; ?>">
+                                <input type="text" class="form-control" id="txtTelefone" name="txtTelefone" placeholder="(99) 9 9999-9999" pattern="\([0-9]{2}\)[\s][0-9]{4,5}-[0-9]{4}" value="<?= $telefone; ?>"/>
                             </div>
                         </div>
                     </div>
@@ -150,7 +150,7 @@ if (filter_input(INPUT_GET, "id_cliente", FILTER_SANITIZE_NUMBER_INT)) {
                         </div>
                     </div>
                     <input class="btn btn-success" type="submit" name="btnGravar" value="Cadastrar">
-                    <a href="#" class="btn btn-danger">Cancelar</a>
+                    <a href="?pagina=cliente" class="btn btn-danger">Cancelar</a>
 
                     <br />
                     <br />
@@ -218,12 +218,11 @@ if (filter_input(INPUT_GET, "id_cliente", FILTER_SANITIZE_NUMBER_INT)) {
                                     <td><?= $user->getNome(); ?></td>
                                     <td><?= $user->getEmail(); ?></td>
                                     <td><a href="?pagina=cliente&id_cliente=<?= $user->getId_cliente(); ?>" class="btn btn-warning">Editar</a></td> <!--cod por id_cliente-->
-                                </tr>
-
-                                <?php
+                                    <td><a href="?pagina=alterarsenha&id_cliente=<?= $user->getId_cliente(); ?>" class="btn btn-warning">Alterar senha</a></td>
+                                    <?php
+                                }
                             }
-                        }
-                        ?>
+                            ?>
                     </tbody>
                 </table>
             </div>
@@ -232,10 +231,10 @@ if (filter_input(INPUT_GET, "id_cliente", FILTER_SANITIZE_NUMBER_INT)) {
     }
     ?>
 </div>
+
 <script src="../js/mask.js" type="text/javascript"></script>
 <script>
     $(document).ready(function () {
-
         if (getCookie("msg") == 1) {
             document.getElementById("pResultado").innerHTML = "<div class=\"alert alert-success\" role=\"alert\">Cliente cadastrado com sucesso.</div>";
             document.cookie = "msg=d";
@@ -243,8 +242,8 @@ if (filter_input(INPUT_GET, "id_cliente", FILTER_SANITIZE_NUMBER_INT)) {
             document.getElementById("pResultado").innerHTML = "<div class=\"alert alert-success\" role=\"alert\">Cliente alterado com sucesso.</div>";
             document.cookie = "msg=d";
         }
-
-        $('#txtTelefone').mask('(00) 0 0000-0000'); //Telefone
+        type = "text/javascript" > $("#txtTelefone").mask("(00) 00000-0009");
+        //$('#txtTelefone').mask('(00) 0 0000-0000'); //Telefone
 
         $("#frmGerenciarCliente").submit(function (e) {
             if (!ValidarFormulario()) {
@@ -291,7 +290,7 @@ if (filter_input(INPUT_GET, "id_cliente", FILTER_SANITIZE_NUMBER_INT)) {
         var senha2 = $("#txtSenha2").val();
 
         if (senha1.length >= 7 && senha2.length >= 7) {
-            if (senha1 === senha2) {
+            if (senha1 == senha2) {
                 return true;
             } else {
                 return false;
@@ -337,4 +336,3 @@ if (filter_input(INPUT_GET, "id_cliente", FILTER_SANITIZE_NUMBER_INT)) {
         }
     }
 </script>
-

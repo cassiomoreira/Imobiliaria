@@ -1,11 +1,13 @@
 <?php
 class Upload {
+    
     private $arrFormatImages;
     private $arrFormatFiles;
-	
+
     public function __construct() {
         $this->arrFormatImages = array(
             "image/jpeg",
+            "image/jpg",
             "image/png"
         );
         $this->arrFormatFiles = array(
@@ -22,11 +24,7 @@ class Upload {
             ".application/msword"
         );
     }
-    /*
-     * Types: 
-     * img  - Is image files, all array formats 'arrFormatImages' images are accepted
-     * file - Is compressed files, all array formats 'arrFormatFiles' are accepted.
-     */
+
     public function LoadFile($path, $type, $file, $renameFile = true) {
         $fl = $file['type'];
         $validFormat = false;
@@ -44,7 +42,7 @@ class Upload {
                 }
             }
         }
-		
+
         if ($validFormat) {
             $finalName = "";
             if ($renameFile) {
@@ -53,15 +51,15 @@ class Upload {
             } else {
                 $finalName = $file['name'];
             }
-			
+
             if (move_uploaded_file($file['tmp_name'], $path . "/" . $finalName)) {
                 return $finalName;
             } else {
                 return "";
             }
-        }else{
-			return "invalid";
-		}
+        } else {
+            return "invalid";
+        }
     }
 }
 ?>

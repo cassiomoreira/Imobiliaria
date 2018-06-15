@@ -1,71 +1,114 @@
 <?php
 
-class Imoveis{
+class Imoveis {
+
     private $id_imovel;
-    private $Codigo_imovel;
-    private $valor_imovel;
-    private $valor_venda;
-    private $aluguel;
-    private $venda;
+    private $nome_prop;
+    private $telefone;
     private $tipo_imovel;
-    
+    private $tipo;
+    private $valor;
+    private $descricao;
+    private $imagem;
+    private $cidade;
+    private $bairro;
+    private $rua;
+    private $numero;
+
     function getId_imovel() {
         return $this->id_imovel;
     }
 
-    function getCodigo_imovel() {
-        return $this->Codigo_imovel;
+    function getNome_prop(){
+        return $this->nome_prop;
     }
 
-    function getValor_imovel() {
-        return $this->valor_imovel;
-    }
-
-    function getValor_venda() {
-        return $this->valor_venda;
-    }
-
-    function getAluguel() {
-        return $this->aluguel;
-    }
-
-    function getVenda() {
-        return $this->venda;
+    function getTelefone() {
+        return $this->telefone;
     }
 
     function getTipo_imovel() {
         return $this->tipo_imovel;
-    
+    }
+
+    function getTipo() {
+        return $this->tipo;
+    }
+
+    function getValor() {
+        return $this->valor;
+    }
+
+    function getDescricao() {
+        return $this->descricao;
+    }
+
+    function getImagem() {
+        return $this->imagem;
+    }
+
+    function getCidade() {
+        return $this->cidade;
+    }
+
+    function getBairro() {
+        return $this->bairro;
+    }
+
+    function getRua() {
+        return $this->rua;
+    }
+
+    function getNumero() {
+        return $this->numero;
     }
 
     function setId_imovel($id_imovel) {
         $this->id_imovel = $id_imovel;
     }
 
-    function setCodigo_imovel($Codigo_imovel) {
-        $this->Codigo_imovel = $Codigo_imovel;
+    function setNome_prop($nome_prop) {
+        $this->nome_prop = $nome_prop;
     }
 
-    function setValor_imovel($valor_imovel) {
-        $this->valor_imovel = $valor_imovel;
-    }
-
-    function setValor_venda($valor_venda) {
-        $this->valor_venda = $valor_venda;
-    }
-
-    function setAluguel($aluguel) {
-        $this->aluguel = $aluguel;
-    }
-
-    function setVenda($venda) {
-        $this->venda = $venda;
+    function setTelefone($telefone) {
+        $this->telefone = $telefone;
     }
 
     function setTipo_imovel($tipo_imovel) {
         $this->tipo_imovel = $tipo_imovel;
     }
 
+    function setTipo($tipo) {
+        $this->tipo = $tipo;
+    }
+
+    function setValor($valor) {
+        $this->valor = $valor;
+    }
+
+    function setDescricao($descricao) {
+        $this->descricao = $descricao;
+    }
+
+    function setImagem($imagem) {
+        $this->imagem = $imagem;
+    }
+
+    function setCidade($cidade) {
+        $this->cidade = $cidade;
+    }
+
+    function setBairro($bairro) {
+        $this->bairro = $bairro;
+    }
+
+    function setRua($rua) {
+        $this->rua = $rua;
+    }
+
+    function setNumero($numero) {
+        $this->numero = $numero;
+    }
 
 }
-

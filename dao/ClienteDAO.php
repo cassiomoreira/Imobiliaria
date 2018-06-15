@@ -38,6 +38,24 @@ class ClienteDAO {
                 ":nome" => $cliente->getNome(),
                 ":email" => $cliente->getEmail(),
                 ":telefone" => $cliente->getTelefone(),
+                ":id_cliente" => $cliente->getId_cliente()
+            );
+
+            return $this->pdo->ExecuteNonQuery($sql, $param);
+        } catch (PDOException $ex) {
+            if ($this->debug) {
+                echo "ERRO: {$ex->getMessage()} LINE: {$ex->getLine()}";
+            }
+            return false;
+        }
+    }
+
+    public function AlterarSenha(string $senha, int $id_cliente) {
+        try {
+            $sql = "UPDATE tb_cliente SET senha = :senha WHERE id_cliente = :id_cliente";
+            $param = array(
+                ":senha" => md5($senha),
+                ":id_cliente" => $id_cliente
             );
 
             return $this->pdo->ExecuteNonQuery($sql, $param);
@@ -124,21 +142,20 @@ class ClienteDAO {
                 ":email" => $email,
                 ":senha" => $senha,
             );
-            
+
             $dt = $this->pdo->ExecuteQueryOneRow($sql, $param);
-            
-            if($dt != null){
+
+            if ($dt != null) {
                 $cliente = new Cliente();
-                
+
                 $cliente->setId_cliente($dt["id_cliente"]);
                 $cliente->setEmail($dt["email"]);
                 $cliente->setSenha($dt["senha"]);
-                
+
                 return $cliente;
-            }else{
+            } else {
                 return null;
             }
-            
         } catch (Exception $ex) {
             if ($this->debug) {
                 echo "ERRO: {$ex->getMessage()} LINE: {$ex->getLine()}";

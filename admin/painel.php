@@ -1,4 +1,4 @@
-<?php /*
+<?php/*
 session_start();
 
 if(isset($_SESSION["logado"])){
@@ -7,7 +7,7 @@ if(isset($_SESSION["logado"])){
     }
 }else{
     header("Location: index.php?msg=1");
-}  */
+}*/
 ?>
 
 <html lang="pt-br">
@@ -18,10 +18,9 @@ if(isset($_SESSION["logado"])){
         <script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
         <script src="../bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <link rel="shortcut icon" href="../img/logo-imobil.ico" />
+        <link href="../img/logo-imobil.ico" rel="shortcut icon"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
-        <script src="js/script.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="dvPainel" class="centralizada">
@@ -33,6 +32,7 @@ if(isset($_SESSION["logado"])){
                     <ul id="ulMenu">
                         <li><a href="painel.php">Início</a></li>
                         <li><a href="?pagina=sobre">Sobre nós</a></li>
+                        <li><a href="?pagina=imoveis">Imóveis</a></li>
                         <li><a href="?pagina=contato">Contato</a></li>
                          <li><a href="?pagina=cliente">Cadastrar-se</a></li>
                    ><!--      <li><a href="logout.php">Sair</a></li>  -->
@@ -63,6 +63,13 @@ if(isset($_SESSION["logado"])){
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function () {
+                $("#btnMenuResponsive").click(function () {
+                    $("#dvMenuResponsive").slideToggle("slow");
+                });
+            });
+        </script>
     </body>
 </html>
 
